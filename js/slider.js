@@ -20,7 +20,6 @@ class Slider {
     }
     
     setupStyles() {
-        // Устанавливаем ширину контейнера для всех страниц
         this.window.style.display = 'flex';
         this.window.style.transition = 'transform 0.3s ease-in-out';
         
@@ -33,8 +32,7 @@ class Slider {
     attachEventListeners() {
         this.arrowLeft.addEventListener('click', () => this.prev());
         this.arrowRight.addEventListener('click', () => this.next());
-        
-        // Поддержка свайпа на мобильных
+
         let startX = 0;
         this.window.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
@@ -60,7 +58,6 @@ class Slider {
             this.currentPage++;
             this.updateSlider();
         } else {
-            // Циклический переход в начало
             this.currentPage = 0;
             this.updateSlider();
         }
@@ -71,14 +68,12 @@ class Slider {
             this.currentPage--;
             this.updateSlider();
         } else {
-            // Циклический переход в конец
             this.currentPage = this.totalPages - 1;
             this.updateSlider();
         }
     }
 }
 
-// Инициализация когда загружен DOM
 document.addEventListener('DOMContentLoaded', () => {
     new Slider();
 });
