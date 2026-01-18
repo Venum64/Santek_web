@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'CG';
+    src: url(../fonts/centurygothic_bold.ttf) format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'EXM';
+    src: url(../fonts/Exo-Medium.ttf) format('trutype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'EXR';
+    src: url(../fonts/Exo2-Regular.ttf) format('trutype');
+    font-weight: 400;
+}
