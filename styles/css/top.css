@@ -63,6 +63,7 @@
     background: grey;
     height: 1px;
     bottom: 0;
+    width: 100%;
 }
 
 .header:hover,
@@ -79,6 +80,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .header__nav-logo img {
@@ -128,13 +130,33 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 35%;
+    gap: 25px;
 }
 
 .header__nav-list_item-link {
     color: var(--white);
     font-size: 16px;
+    display: inline-block;
     font-family: var(--EXM);
+    position: relative;
+    text-decoration: none;
+}
+
+.header__nav-list_item-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header__nav-list_item-link:hover::after {
+    transform: translateX(-50%);
 }
 
 /* header end */
@@ -174,6 +196,7 @@
     border: var(--white) 2px solid;
     width: 158px;
     transition: 0.3s;
+
 }
 
 .about-btn:hover {
@@ -204,6 +227,7 @@
     flex: 1;
     position: relative;
     padding: 0 20px;
+
 }
 
 .feature__content-block:not(:last-child)::after {
@@ -221,6 +245,8 @@
     width: 80px;
     height: 80px;
     margin-bottom: 25px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
 }
 
 .feature__text {
@@ -230,4 +256,68 @@
     font-weight: 500;
 }
 
+.feature__icon.rotate {
+    transform: rotateY(180deg);
+}
+
 /* feature end */
+
+@media screen and (max-width:1000px) {
+    .header__nav-list {
+        gap: 15px;
+        text-align: center;
+
+    }
+}
+
+@media screen and (max-width:950px) {
+    .header__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+
+    .header__nav-list {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .header__nav-list_item-link {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width:475px) {
+    .feature__content {
+        flex-wrap: wrap;
+        gap: 20px 0;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .about-h {
+        font-size: 40px;
+    }
+
+    .about-p {
+        font-size: 16px;
+    }
+
+    .about-btn {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:345px) {
+    .about-p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .about-h {
+        font-size: 30px;
+    }
+}
